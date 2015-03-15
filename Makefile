@@ -305,6 +305,12 @@ HOSTCFLAGS  += -Wno-unused-value -Wno-unused-parameter \
 		-Wno-missing-field-initializers -fno-delete-null-pointer-checks
 endif
 
+ifeq ($(shell uname -o), Darwin)
+HOSTCFLAGS  += -Wno-unused-value -Wno-unused-parameter \
+		-Wno-missing-field-initializers \
+		-I$(srctree)/include/host-darwin
+endif
+
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
 
